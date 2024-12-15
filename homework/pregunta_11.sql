@@ -38,3 +38,22 @@
 --
 --  >>> Escriba su codigo a partir de este punto <<<
 -- 
+
+WITH
+conteo AS (
+    SELECT
+        strftime('%Y', c14),
+        COUNT(*) AS conteo
+    FROM
+        tbl1
+    WHERE
+        strftime('%Y', c14) = '2018'
+    GROUP BY
+        1
+)
+
+SELECT
+    conteo AS `COUNT(*)`
+FROM
+    conteo
+;
